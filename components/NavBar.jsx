@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ToggleDarkMode from './ToggleDarkMode';
 
 const NavBar = () => {
     const router = useRouter();
+    const [theme, setTheme] = useState('dark');
+    let ifTitle = theme === 'dark' ? 'text-primary-dark font-extrabold' : 'EaseLink'
 
     const NavLinks = [
         {
@@ -25,14 +27,19 @@ const NavBar = () => {
     ]
 
     return (
-        <header className='bg-secondary-dark py-5 px-20'>
+        <header
+            className='dark:bg-background-dark dark:border-none bg-background border-b-2 border-secondary-dark
+            py-5 px-20'
+        >
             <nav className='flex items-center justify-between'>
-                <h1 className='text-3xl text-primary-dark font-extrabold'>EaseLink</h1>
+                <h1
+                    className={`text-3xl ${ifTitle}`}
+                >EaseLink</h1>
                 <ul className='flex items-center justify-center gap-6'>
                     {
                         NavLinks.map(({ id, link, path }) => {
                             let pathActive = router.pathname === path;
-                            let active = pathActive ? 'text-primary-dark' : 'text-text-dark'
+                            let active = pathActive ? 'dark:text-primary-dark text-primary' : 'dark:text-text-dark text-text'
 
                             return (
                                 <li key={id}>
@@ -55,7 +62,7 @@ const NavBar = () => {
                         })
                     }
                     <li className='ml-5'>
-                        <ToggleDarkMode />
+                        <ToggleDarkMode setTheme={setTheme} theme={theme} />
                     </li>
                 </ul>
             </nav>

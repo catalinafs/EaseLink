@@ -1,27 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  font-family: 'Montserrat', sans-serif, Arial, Helvetica;
 }
+
+#InputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all .5s ease-in-out;
+}
+
+#InputBox input:is(:focus, :valid, :hover)~label {
+  top: -22px;
+  left: 0;
+  font-size: 14px;
+  color: #b46b41;
+  transition: all .5s ease-in-out;
+}
+
+.toggle-switch {
+  --light: #ecf4f8;
+  --dark: #070F13;
+  width: 50px;
+  height: 25px;
+  position: relative;
+}
+
+.switch-label {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.466);
+  position: absolute;
+  width: 100%;
+  height: 25px;
+  background-color: var(--dark);
+  border-radius: 25px;
+  cursor: pointer;
+  border: 2px solid var(--dark);
+}
+
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked~.slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+  box-shadow: inset 5px -4px 0px 0px var(--light);
+  background-color: var(--dark);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked~.slider::before {
+  -webkit-transform: translateX(25px);
+  -ms-transform: translateX(25px);
+  transform: translateX(25px);
+  background-color: var(--dark);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  #InputBox input:is(:focus, :valid, :hover)~label {
+    color: #BE754B;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }

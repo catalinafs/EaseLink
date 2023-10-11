@@ -9,7 +9,4 @@ CREATE TABLE "Link" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Link_url_key" ON "Link"("url");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Link_shortUrl_key" ON "Link"("shortUrl");

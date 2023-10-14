@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
-import Link from 'next/link';
+import React, { useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
-import ToggleDarkMode from './ToggleDarkMode';
+import NavBarDesktop from './NavBarDesktop';
+import NavBarMobile from './NavBarMobile';
+import { Context } from '@/context';
+import Link from 'next/link';
 
 const NavBar = () => {
     const router = useRouter();
     const [theme, setTheme] = useState('dark');
     let ifTitle = theme === 'dark' ? 'text-primary-dark font-extrabold' : 'EaseLink'
+    const { responsive } = useContext(Context);
 
     const NavLinks = [
         {
@@ -29,42 +32,26 @@ const NavBar = () => {
     return (
         <header
             className='dark:bg-background-dark dark:border-none bg-background border-b-2 border-secondary-dark
-            py-5 px-20'
+            py-5 px-20 2xl:px-[20%] xl:px-20 lg:px-20 md:px-36'
         >
             <nav className='flex items-center justify-between'>
-                <h1
-                    className={`text-3xl ${ifTitle}`}
-                >EaseLink</h1>
-                <ul className='flex items-center justify-center gap-6'>
-                    {
-                        NavLinks.map(({ id, link, path }) => {
-                            let pathActive = router.pathname === path;
-                            let active = pathActive ? 'dark:text-primary-dark text-primary' : 'dark:text-text-dark text-text'
-
-                            return (
-                                <li key={id}>
-                                    <Link
-                                        href={path}
-                                    >
-                                        <h3
-                                            className={`${active} inline-block relative font-medium
-                                            after:underline after:content-[" "] after:absolute after:w-full after:h-[3px]
-                                            after:bottom-0 after:left-0 after:bg-primary-dark after:scale-x-0
-                                            after:origin-bottom-right after:transition-transform after:duration-[0.6s]
-                                            after:easi-in-out hover:after:scale-x-100 hover:after:origin-bottom-left
-                                            hover:text-primary-dark`}
-                                        >
-                                            {link}
-                                        </h3>
-                                    </Link>
-                                </li>
-                            )
-                        })
-                    }
-                    <li className='ml-5'>
-                        <ToggleDarkMode setTheme={setTheme} theme={theme} />
-                    </li>
-                </ul>
+                <Link href='/'>
+                    <h1
+                        className={`text-3xl ${ifTitle}`}
+                    >EaseLink</h1>
+                </Link>
+                {
+                    responsive <= 1024
+                        ?
+                        <NavBarMobile NavLinks={NavLinks} />
+                        :
+                        <NavBarDesktop
+                            NavLinks={NavLinks}
+                            theme={theme}
+                            setTheme={setTheme}
+                            router={router}
+                        />
+                }
             </nav>
         </header>
     );

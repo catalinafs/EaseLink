@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import InputField from '@/components/InputField';
 import Button from '@/components/Button';
+import Form from '@/components/Form';
 
 export default function Home() {
   const inputRef = useRef();
@@ -20,18 +21,22 @@ export default function Home() {
       .then((response) => { return response.json() })
       .then((data) => {
         return setShortUrl(data.shortUrl)
-      })
+      });
   }
 
   return (
     <main
-      // className='flex min-h-screen flex-col items-center justify-between p-24 dark:bg-background-dark'
-      className='flex flex-col items-center justify-between p-24'
+      className='flex flex-col items-center justify-center h-[60vh] mx-24 2xl:mx-[20%] xl:mx-20 lg:mx-20
+      md:mx-36'
     >
-      <form onSubmit={handleLongLink}>
+      {/* <form onSubmit={handleLongLink}>
         <InputField inputRef={inputRef} labelText='Enter your link' />
         <Button text='Shorten It' />
-      </form>
+      </form> */}
+      <Form handleLongLink={handleLongLink} >
+        <InputField inputRef={inputRef} labelText='Enter your link' />
+        <Button text='Shorten It' />
+      </Form>
       <h2>{shortUrl}</h2>
     </main>
   );

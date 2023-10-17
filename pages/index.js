@@ -2,7 +2,6 @@ import { useRef, useState } from 'react';
 import InputField from '@/components/InputField';
 import Button from '@/components/Button';
 import Form from '@/components/Form';
-import { useFetch } from '@/hooks/useFetch';
 
 export default function Home() {
   const inputRef = useRef();

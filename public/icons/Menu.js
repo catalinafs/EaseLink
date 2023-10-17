@@ -6,7 +6,7 @@ const Menu = (props) => (
     width={props.width || 30}
     height={props.height || 30}
     style={{
-      fill: props.fill || '#fff',
+      fill: props.fill,
     }}
     viewBox='0 0 256 256'
     {...props}

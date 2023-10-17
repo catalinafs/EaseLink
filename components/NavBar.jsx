@@ -32,10 +32,10 @@ const NavBar = () => {
     return (
         <header
             className='dark:bg-background-dark dark:border-none bg-background border-b-2 border-secondary-dark
-            py-5 px-20 2xl:px-[20%] xl:px-20 lg:px-20 md:px-36'
+            py-5 px-14 2xl:px-[20%] xl:px-20 lg:px-20 md:px-36 sm:px-20 w-full'
         >
-            <nav className='flex items-center justify-between'>
-                <Link href='/'>
+            <nav className='flex items-center justify-between w-full'>
+                <Link href='/' className='z-40'>
                     <h1
                         className={`text-3xl ${ifTitle}`}
                     >EaseLink</h1>
@@ -43,7 +43,12 @@ const NavBar = () => {
                 {
                     responsive <= 1024
                         ?
-                        <NavBarMobile NavLinks={NavLinks} />
+                        <NavBarMobile
+                            NavLinks={NavLinks}
+                            theme={theme}
+                            setTheme={setTheme}
+                            router={router}
+                        />
                         :
                         <NavBarDesktop
                             NavLinks={NavLinks}

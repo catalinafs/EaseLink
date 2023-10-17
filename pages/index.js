@@ -2,10 +2,13 @@ import { useRef, useState } from 'react';
 import InputField from '@/components/InputField';
 import Button from '@/components/Button';
 import Form from '@/components/Form';
+import { useFetch } from '@/hooks/useFetch';
 
 export default function Home() {
   const inputRef = useRef();
   const [shortUrl, setShortUrl] = useState('');
+
+  let ifShortUrl = shortUrl != '' ? '' : 'hidden';
 
   const handleLongLink = (event) => {
     event.preventDefault();
@@ -26,18 +29,21 @@ export default function Home() {
 
   return (
     <main
-      className='flex flex-col items-center justify-center h-[60vh] mx-24 2xl:mx-[20%] xl:mx-20 lg:mx-20
-      md:mx-36'
+      className='flex flex-col justify-center gap-6 h-[60vh] 2xl:mx-[20%] xl:mx-20 lg:mx-20
+      md:mx-36 sm:mx-0'
     >
-      {/* <form onSubmit={handleLongLink}>
-        <InputField inputRef={inputRef} labelText='Enter your link' />
-        <Button text='Shorten It' />
-      </form> */}
       <Form handleLongLink={handleLongLink} >
         <InputField inputRef={inputRef} labelText='Enter your link' />
         <Button text='Shorten It' />
       </Form>
-      <h2>{shortUrl}</h2>
+      <a
+        href={`/${shortUrl}`}
+        target='_blank'
+        className={`mt-14 underline hover:no-underline cursor-pointer break-words text-lg
+        sm:text-xl ${ifShortUrl} break-words text-center mx-10 sm:mx-0`}
+      >
+        https://EaseLink.vercel.app/{shortUrl}
+      </a>
     </main>
   );
 }

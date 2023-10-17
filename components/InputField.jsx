@@ -1,6 +1,6 @@
 const InputField = ({ inputRef, labelText }) => {
     return (
-        <div className='relative w-4/5 2xl:w-[500px] xl:w-[400px] lg:w-[350px] md:w-[300px]' id="InputBox">
+        <div className='relative w-[80%] 2xl:w-[500px] xl:w-[400px] lg:w-[350px] md:w-[300px]' id="InputBox">
             <input
                 type='text'
                 id='LongLink'

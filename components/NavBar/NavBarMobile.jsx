@@ -2,7 +2,7 @@ import ClosedMenu from "@/public/icons/ClosedMenu";
 import Menu from "@/public/icons/Menu";
 import Link from "next/link";
 import { useState } from "react";
-import ToggleDarkMode from "./ToggleDarkMode";
+import ToggleDarkMode from "../ToggleDarkMode";
 
 const NavBarMobile = ({ NavLinks, theme, setTheme, router }) => {
     const [open, setOpen] = useState(false);

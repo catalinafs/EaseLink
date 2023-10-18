@@ -41,7 +41,7 @@ export default function Home() {
         className={`mt-14 underline hover:no-underline cursor-pointer break-words text-lg
         sm:text-xl ${ifShortUrl} break-words text-center mx-10 sm:mx-0`}
       >
-        https://EaseLink.vercel.app/{shortUrl}
+        {shortUrl ? `https://EaseLink.vercel.app/${shortUrl}` : ''}
       </a>
     </main>
   );

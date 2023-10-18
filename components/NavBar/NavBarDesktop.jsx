@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ToggleDarkMode from './ToggleDarkMode';
+import ToggleDarkMode from '../ToggleDarkMode';
 
 const NavBarDesktop = ({ NavLinks, theme, setTheme, router }) => {
     return (

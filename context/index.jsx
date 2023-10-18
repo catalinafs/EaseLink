@@ -4,6 +4,7 @@ export const Context = createContext();
 
 const ContextUse = ({ children }) => {
   const [responsive, setResponsive] = useState();
+  const [theme, setTheme] = useState('dark');
 
   useEffect(() => {
     function handleResize() {
@@ -18,7 +19,7 @@ const ContextUse = ({ children }) => {
     }
   }, []);
 
-  const value = { responsive };
+  const value = { responsive, theme, setTheme };
 
   return (
     <Context.Provider value={value}>

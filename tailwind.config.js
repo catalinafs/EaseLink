@@ -39,6 +39,8 @@ module.exports = {
       },
       borderRadius: {
         'RadiusRounded': '50%',
+        'Radius15': '15px',
+        'Radius40': '40px',
       },
       boxShadow: {
         'ButtonHoverDark': '0 20px 80px -10px #b06940',

@@ -1,4 +1,4 @@
-import NavBar from '@/components/NavBar';
+import NavBar from '@/components/NavBar/NavBar';
 import ContextUse from '@/context';
 import '@/styles/globals.css';
 import Head from 'next/head';

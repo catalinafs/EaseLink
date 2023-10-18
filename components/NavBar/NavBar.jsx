@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
 import NavBarDesktop from './NavBarDesktop';
 import NavBarMobile from './NavBarMobile';
@@ -7,9 +7,8 @@ import Link from 'next/link';
 
 const NavBar = () => {
     const router = useRouter();
-    const [theme, setTheme] = useState('dark');
-    let ifTitle = theme === 'dark' ? 'text-primary-dark font-extrabold' : 'EaseLink'
-    const { responsive } = useContext(Context);
+    const { responsive, theme, setTheme } = useContext(Context);
+    let ifTitle = theme === 'dark' ? 'text-primary-dark font-extrabold' : 'EaseLink';
 
     const NavLinks = [
         {
@@ -27,7 +26,7 @@ const NavBar = () => {
             link: 'Project Resources',
             path: '/projectResources',
         }
-    ]
+    ];
 
     return (
         <header

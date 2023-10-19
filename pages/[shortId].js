@@ -3,9 +3,9 @@ import { PrismaClient } from "@prisma/client";
 export default function ShortIdPage() {
     return (
         <div>
-            asdsdasd
+            Short Id Page
         </div>
-    )
+    );
 }
 
 export async function getServerSideProps({ params }) {

@@ -5,10 +5,10 @@ const allLinks = () => {
 
   const { data, loading, error } = useFetch(urlApi);
 
-  if (error) return (<h2>Fue error de tu pc no el mio, en el mio funciona</h2>)
-  if (loading) return (<h2>cargandin ...</h2>)
+  if (error) return (<h2>Fue error de tu pc no el mio, en el mio funciona</h2>);
+  if (loading) return (<h2>cargandin ...</h2>);
 
-  console.log(data)
+  console.log(data);
 
   return (
     <div>

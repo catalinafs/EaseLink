@@ -25,7 +25,7 @@ const ContextUse = ({ children }) => {
     <Context.Provider value={value}>
       {children}
     </Context.Provider>
-  )
+  );
 }
 
 export default ContextUse;

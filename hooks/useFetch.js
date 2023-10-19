@@ -17,10 +17,10 @@ export const useFetch = (urlApi) => {
                 setData(data);
             } catch (error) {
                 setError(true);
-                throw error
+                throw error;
             }
         })();
     }, [urlApi]);
 
-    return { data, error, loading }
+    return { data, error, loading };
 }

@@ -22,7 +22,7 @@ export default function Home() {
     })
       .then((response) => { return response.json() })
       .then((data) => {
-        return setShortUrl(data.shortUrl)
+        return setShortUrl(data.shortUrl);
       });
   }
 

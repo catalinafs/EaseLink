@@ -1,10 +1,15 @@
 const Typography = () => {
     return (
-        <div className="dark:bg-secondary bg-secondary-dark rounded-Radius40 p-7">
+        <div
+            className="dark:bg-secondary bg-secondary-dark rounded-Radius40 p-7
+            flex flex-col items-center lg:items-start justify-center relative"
+        >
             <h2
-                className="dark:text-text text-text-dark font-semibold text-xl mb-3
-                text-center"
-            >Typography</h2>
+                className="dark:text-text text-text-dark font-semibold text-xl mb-3 text-center 
+                lg:text-center w-full"
+            >
+                Typography
+            </h2>
 
             <div className="flex items-baseline dark:text-text text-text-dark">
                 <span
@@ -15,7 +20,7 @@ const Typography = () => {
                 >Montserrat</h3>
             </div>
 
-            <div className="dark:text-text text-text-dark text-lg mt-6">
+            <div className="dark:text-text text-text-dark text-lg pt-6 px-3 break-words hidden sm:block">
                 <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
                 <p>abcdefghijklmnopqrstuvwxyz</p>
                 <p>{'0123456789?¿¡!@#%/()=$;,:.><'}</p>

@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { PrismaClient } from "@prisma/client";
 import nanoId from "nano-id";
 
@@ -15,6 +14,6 @@ export default async (req, res) => {
 
     return res.status(200).send(data);
   } catch (error) {
-    return res.status(500).send({ error })
+    return res.status(500).send({ error });
   }
 }

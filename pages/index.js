@@ -38,10 +38,10 @@ export default function Home() {
       <a
         href={`/${shortUrl}`}
         target='_blank'
-        className={`mt-14 underline hover:no-underline cursor-pointer break-words text-lg
-        sm:text-xl ${ifShortUrl} break-words text-center mx-10 sm:mx-0`}
+        className={`mt-14 cursor-pointer break-words text-lg sm:text-xl
+        ${ifShortUrl} break-words text-center mx-10 sm:mx-0 hover:text-primary-dark`}
       >
-        {shortUrl ? `https://EaseLink.vercel.app/${shortUrl}` : ''}
+        {shortUrl ? `https://easelink.vercel.app/${shortUrl}` : ''}
       </a>
     </main>
   );
